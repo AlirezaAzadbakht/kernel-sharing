@@ -3,7 +3,7 @@ dataset='cifar10'
 experiment='shared-cifar10-no-cutout-64-128-256-second-third-stages'
 model=se_resnet_d_4
 
-CUDA_VISIBLE_DEVICES=1 /home/kherad/anaconda3/envs/alireza/bin/python ./Cifar.py \
+CUDA_VISIBLE_DEVICES=1 /home/kherad/anaconda3/envs/alireza/bin/python ./SEResNet/Cifar.py \
 --experiment_name $experiment \
 --sync \
 --epochs 256 \
