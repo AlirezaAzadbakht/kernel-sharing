@@ -3,7 +3,7 @@ The script is adapted from torchvision.models.ResNet
 """
 
 import torch.nn as nn
-from senet.se_layer import SqueezeExcitationLayer as SE
+from models.se_layer import SqueezeExcitationLayer as SE
 from torch.nn.parameter import Parameter
 
 __all__ = ['se_resnet_d_6','se_resnet_d_3','se_resnet_d_10','se_resnet_d_2', 'se_resnet_d_4','se_resnet_d_8']

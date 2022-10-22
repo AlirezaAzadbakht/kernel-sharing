@@ -5,7 +5,7 @@ import random
 
 import torch.optim as optim
 from Training import Trainer, DataLoader
-import senet
+import models
 
 import time
 from logger import log_print
@@ -16,8 +16,8 @@ def main():
         num_classes = 10
     elif args.dataset == "cifar100":
         num_classes = 100
-    if args.network in dir(senet):
-        model = getattr(senet, args.network)(
+    if args.network in dir(models):
+        model = getattr(models, args.network)(
             num_classes=num_classes, new_resnet=args.new_resnet, dropout=args.dropout, sync=args.sync)
     else:
         raise ValueError('no such model')
@@ -84,7 +84,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     timestamp = int(time.time())
     experiment_name = f'{args.experiment_name}-{args.network}'
-    logfile = open(f'logs/log_{experiment_name}_{timestamp}.txt', 'w')
+    logfile = open(f'log_{experiment_name}_{timestamp}.txt', 'w')
 
     h_acc = main()
     ID = f'{random.random():.6f}'
