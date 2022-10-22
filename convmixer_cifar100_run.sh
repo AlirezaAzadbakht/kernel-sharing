@@ -1,6 +1,6 @@
 time=$(date '+%d_%m_%Y_%H:%M:%S')
 dataset='Cifar100'
-root='/home/kheradpishehs/azadbakht'
+root='/home/azadbakht'
 model=convmixer_256_16_shared
 
 CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=1 --master_port 47760 ./ConvMixer/main.py \
