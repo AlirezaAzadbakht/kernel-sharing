@@ -1,5 +1,5 @@
 
-# Kernel-Sharing
+# Drastically Reducing the Number of Trainable Parameters in Deep CNNs by Inter-layer Kernel-sharing
 
   
 
