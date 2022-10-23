@@ -6,7 +6,7 @@ import torch.nn as nn
 from models.se_layer import SqueezeExcitationLayer as SE
 from torch.nn.parameter import Parameter
 
-__all__ = ['se_resnet_d_6','se_resnet_d_3','se_resnet_d_10','se_resnet_d_2', 'se_resnet_d_4','se_resnet_d_8']
+__all__ = ['se_resnet_d_6','se_resnet_d_3','se_resnet_d_10','se_resnet_d_2', 'se_resnet_d_4', 'se_resnet_d_8', 'se_resnet_d_2_full_shared']
 
 model_urls = {
     'se_resnet18': None,
@@ -166,7 +166,7 @@ class CifarNet(nn.Module):
     This is specially designed for cifar10
     """
 
-    def __init__(self, block, n_size, num_classes=10, reduction=16, new_resnet=False, dropout=0., sync=False):
+    def __init__(self, block, n_size, num_classes=10, reduction=16, new_resnet=False, dropout=0., share_stages=[True, True, True], sync=True):
         super(CifarNet, self).__init__()
         self.inplane = 16
         self.new_resnet = new_resnet
@@ -176,16 +176,12 @@ class CifarNet(nn.Module):
         self.bn1 = nn.BatchNorm2d(self.inplane, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.sync = sync
-        print('apply weight sharing:', self.sync)
-        print('layer 1:')
         self.layer1 = self._make_layer(
-            block, 64, blocks=n_size, stride=1, reduction=reduction, share=False)
-        print('layer 2:')
+            block, 64, blocks=n_size, stride=1, reduction=reduction, share=share_stages[0])
         self.layer2 = self._make_layer(
-            block, 128, blocks=n_size, stride=2, reduction=reduction, share=True)
-        print('layer 3:')
+            block, 128, blocks=n_size, stride=2, reduction=reduction, share=share_stages[1])
         self.layer3 = self._make_layer(
-            block, 256, blocks=n_size, stride=2, reduction=reduction, share=True)
+            block, 256, blocks=n_size, stride=2, reduction=reduction, share=share_stages[2])
 
         self.avgpool = nn.AdaptiveAvgPool2d(1)
         if self.dropout_prob > 0:
@@ -206,10 +202,6 @@ class CifarNet(nn.Module):
         layers = []
         conv = conv3x3(planes, planes, 1)
         conv_w = Parameter(conv.weight.clone().detach())
-        if share and self.sync:
-            print('shared')
-        else:
-            print('not shared')
 
         for stride in strides:
             if self.sync and share:
@@ -241,7 +233,11 @@ class CifarNet(nn.Module):
         return x
 
 def se_resnet_d_2(**kwargs):
-    model = CifarNet(SEBasicBlock, 2, **kwargs)
+    model = CifarNet(SEBasicBlock, 2, share_stages=[False, False, False], **kwargs)
+    return model
+
+def se_resnet_d_2_full_shared(**kwargs):
+    model = CifarNet(SEBasicBlock, 2, share_stages=[True, True, True], **kwargs)
     return model
 
 def se_resnet_d_3(**kwargs):
