@@ -15,7 +15,7 @@ New models with the desired configuration could be registered in `ConvMixer/mode
 ## Instal requirements 
 To prepare suitable envirments, execute `pip install -r requirements.txt` in a conda enviorments.
 
-## training
+## Training
 
 For training the ConvMixer model on the Cifar-10 or Cifar-100 dataset, you can execute `convmixer_cifar10_run.sh` or `convmixer_cifar100_run.sh`
  and for the SE-ResNet, you can execute `seresnet_cifar10_run.sh` or `seresnet_cifar100_run.sh`
