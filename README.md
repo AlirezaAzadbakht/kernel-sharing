@@ -11,11 +11,11 @@ Deep convolutional neural networks (DCNNs) have become the state-of-the-art (SOT
   <img src="https://github.com/AlirezaAzadbakht/kernel-sharing/blob/main/figs/shared-kernel.png" style="width:40%;" />
 </p>
 
-## Add new model
+## Add New Model
 
 New models with the desired configuration could be registered in `ConvMixer/models/convmixer.py` and `SEResNet/models/se_resnet.py`
   
-## Instal requirements 
+## Instal Requirements 
 To prepare suitable environments, execute `pip install -r requirements.txt` in a conda environment.
 
 ## Training
