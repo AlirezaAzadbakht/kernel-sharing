@@ -22,3 +22,6 @@ To prepare suitable environments, execute `pip install -r requirements.txt` in a
 
 For training the ConvMixer model on the Cifar-10 or Cifar-100 dataset, you can execute `convmixer_cifar10_run.sh` or `convmixer_cifar100_run.sh`
  and for the SE-ResNet, you can execute `seresnet_cifar10_run.sh` or `seresnet_cifar100_run.sh`
+
+##
+The base code for conventional models for ConvMixer cloned from (https://github.com/locuslab/convmixer), and for SE-ResNet cloned from (https://github.com/Jyouhou/SENet-cifar10). 
