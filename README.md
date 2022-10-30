@@ -24,4 +24,4 @@ For training the ConvMixer model on the Cifar-10 or Cifar-100 dataset, you can e
  and for the SE-ResNet, you can execute `seresnet_cifar10_run.sh` or `seresnet_cifar100_run.sh`
 
 ##
-The base code for conventional models for ConvMixer cloned from (https://github.com/locuslab/convmixer), and for SE-ResNet cloned from (https://github.com/Jyouhou/SENet-cifar10). 
+The base code for conventional models, ConvMixer cloned from (https://github.com/locuslab/convmixer), and SE-ResNet cloned from (https://github.com/Jyouhou/SENet-cifar10). 
