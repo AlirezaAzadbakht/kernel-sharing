@@ -1,5 +1,5 @@
 
-# Drastically Reducing the Number of Trainable Parameters in Deep CNNs by Inter-layer Kernel-sharing
+# Drastically Reducing the Number of Trainable Parameters in Deep CNNs by Inter-layer Kernel-sharing 
 
 The implementation and experiments of kernel-sharing presented in "A. Azadbakht, S. R. Kheradpisheh, I. Khalfaoui-Hassani, T. Masquelier, Drastically Reducing the Number of Trainable Parameters in Deep CNNs by Inter-layer Kernel-sharing", available at: https://arxiv.org/abs/2210.14151.
 
