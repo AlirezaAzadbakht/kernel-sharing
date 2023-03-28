@@ -12,16 +12,13 @@ Deep convolutional neural networks (DCNNs) have become the state-of-the-art (SOT
 </p>
 
 ## Add New Model
-
-New models with the desired configuration could be registered in `ConvMixer/models/convmixer.py` and `SEResNet/models/se_resnet.py`
+To register new models with the desired configuration, please refer to the following files: `ConvMixer/models/convmixer.py` for ConvMixer models and `SEResNet/models/se_resnet.py` for SE-ResNet models.
   
 ## Instal Requirements 
-To prepare suitable environments, execute `pip install -r requirements.txt` in a conda environment.
+To create an appropriate environment, execute `pip install -r requirements.txt` within a Conda environment.
 
 ## Training
-
-For training the ConvMixer model on the Cifar-10 or Cifar-100 dataset, you can execute `convmixer_cifar10_run.sh` or `convmixer_cifar100_run.sh`
- and for the SE-ResNet, you can execute `seresnet_cifar10_run.sh` or `seresnet_cifar100_run.sh`
+To train the ConvMixer model on either the Cifar-10 or Cifar-100 dataset, simply execute the `convmixer_cifar10_run.sh` or `convmixer_cifar100_run.sh` scripts. Similarly, to train the SE-ResNet model, execute the `seresnet_cifar10_run.sh` or `seresnet_cifar100_run.sh` scripts. These scripts will streamline the training process and ensure optimal performance on your chosen dataset.
 
 ##
-The base code for conventional models, ConvMixer cloned from (https://github.com/locuslab/convmixer), and SE-ResNet cloned from (https://github.com/Jyouhou/SENet-cifar10). 
+The base code for conventional models, including ConvMixer and SE-ResNet, was obtained by cloning their respective repositories on GitHub. ConvMixer's code was sourced from (https://github.com/locuslab/convmixer), while SE-ResNet's code was obtained from (https://github.com/Jyouhou/SENet-cifar10).
